@@ -1,0 +1,47 @@
+#include <iostream>
+
+class HanXin{
+public:
+	int l3,l5,l7;
+	HanXin();
+	void line3(int x);
+	void line5(int x);
+	void line7(int x);
+	void showMany(); 
+		
+};
+HanXin::HanXin(){}
+void HanXin::line3(int x){
+	l3=x;
+}
+void HanXin::line5(int x){
+	l5=x;
+}
+void HanXin::line7(int x){
+	l7=x;
+}
+void HanXin::showMany() {
+	int ans;
+	for(int i=10;i<=100;i++){
+		if(i%3==l3 &&i%5==l5 && i%7==l7){
+			std::cout<<i<<std::endl;
+			return;
+		}
+	}
+	std::cout<<"Impossible"<<std::endl;
+	return;
+}
+
+
+int main() {
+    int n, n1, n2, n3;
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+        std::cin >> n1 >> n2 >> n3;
+        HanXin hx;  //韩信
+        hx.line3(n1);  //3人一排
+        hx.line5(n2);   //5人一排
+        hx.line7(n3);   //7人一排
+        hx.showMany();
+    }
+}

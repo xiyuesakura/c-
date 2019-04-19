@@ -1,0 +1,32 @@
+#include<iostream> 
+class Number{
+public:
+	int num;
+	Number(int x);
+	int gcd(int a,int b);
+	Number maxDivisor(Number y);
+	void show();
+	
+};
+Number::Number(int x){
+	num=x;
+}
+int Number::gcd(int a,int b){return b?gcd(b,a%b):a;}
+Number Number::maxDivisor(Number y){
+	return Number(gcd(num,y.num));
+}
+void Number::show(){
+	std::cout<<num<<std::endl;
+}
+
+int main() {
+    int n, n1, n2;
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+        std::cin >> n1 >> n2;
+        Number no1(n1), no2(n2);
+        Number no3 = no1.maxDivisor(no2);  //最大公约数
+        no3.show();
+    }
+}
+
